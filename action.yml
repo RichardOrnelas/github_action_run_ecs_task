@@ -1,0 +1,36 @@
+# action.yml
+name: 'ECS Run Task'
+description: 'Run a simple ECS task'
+inputs:
+  task-definition-arn:  # id of input
+    description: 'Task Definition to run in the task'
+    required: true
+    default: ''
+  cluster:  # id of input
+    description: 'name of ecs cluster'
+    required: true
+    default: ''
+  command:  # id of input
+    description: 'name of ecs command'
+    required: true
+    default: ''
+  container-name:  # id of input
+    description: 'container name'
+    required: true
+    default: ''
+  region:  # id of input
+    description: 'aws region'
+    required: true
+    default: ''
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.task-definition-arn }}
+    - ${{ inputs.cluster }}
+    - ${{ inputs.command }}
+    - ${{ inputs.container-name }}
+    - ${{ inputs.region }}
