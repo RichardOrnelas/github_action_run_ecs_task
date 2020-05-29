@@ -1,6 +1,10 @@
 require "awesome_print"
 require "aws-sdk-ecs"
 require "shellwords"
+require "logger"
+
+logger = Logger.new(STDOUT)
+logger.level = Logger::DEBUG
 
 DESIRED_COUNT = 1
 TASK_DEFINITION = ARGV[0]
