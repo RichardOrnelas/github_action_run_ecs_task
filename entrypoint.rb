@@ -25,7 +25,7 @@ run_task = ECS.run_task({
       subnets: [SUBNET],
       security_groups: [SECURITY_GROUP]
     }
-  }
+  },
   overrides: {
     container_overrides: [
       name: CONTAINER_NAME,
