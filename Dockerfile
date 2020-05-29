@@ -14,4 +14,4 @@ RUN bundle install
 COPY . /var/app
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["ruby","/entrypoint.rb"]
+ENTRYPOINT ["ruby","/var/app/entrypoint.rb"]
