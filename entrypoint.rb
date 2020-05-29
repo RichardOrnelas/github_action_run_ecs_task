@@ -13,10 +13,19 @@ SECURITY_GROUP = ARGV[6]
 
 command = COMMAND.shellsplit
 
+logger.info("task definition arn = #{TASK_DEFINITION}")
+logger.info("CLUSTER = #{CLUSTER}")
+logger.info("COMMAND = #{COMMAND}")
+logger.info("CONTAINER_NAME = #{CONTAINER_NAME}")
+logger.info("REGION = #{REGION}")
+logger.info("SUBNET = #{SUBNET}")
+logger.info("SECURITY_GROUP = #{SECURITY_GROUP}")
+
 ECS = Aws::ECS::Client.new()
 
 run_task = ECS.run_task({
   cluster: CLUSTER,
+  family: CONTAINER_NAME,
   task_definition: TASK_DEFINITION,
   count: 1,
   launch_type: "FARGATE",
