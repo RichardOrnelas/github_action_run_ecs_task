@@ -13,6 +13,12 @@ run_result=$(aws ecs run-task --region $REGION --cluster $CLUSTER --task-definit
 DO_RETRY=1
 RETRIES=0
 
+COMMAND_ARRAY=
+IFS=' ' # space is set as delimiter
+read -ra ADDR <<< "$str" # str is read into an array as tokens separated by IFS
+for i in "${ADDR[@]}"; do # access each element of array
+    echo "$i"
+done
 
 set +e
 while [ "$RETRIES" -lt $MAX_RETRIES ] && [ $DO_RETRY -eq 1 ]; do
