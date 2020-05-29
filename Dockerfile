@@ -8,7 +8,7 @@ WORKDIR /var/app
 RUN gem update --system
 RUN bundle install
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.rb /var/app/entrypoint.rb
+COPY . /var/app
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["ruby","/entrypoint.rb"]
