@@ -22,6 +22,14 @@ inputs:
     description: 'aws region'
     required: true
     default: ''
+  subnet:  # id of input
+    description: 'aws subnet'
+    required: true
+    default: ''
+  security-group:  # id of input
+    description: 'aws security group'
+    required: true
+    default: ''
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -34,3 +42,5 @@ runs:
     - ${{ inputs.command }}
     - ${{ inputs.container-name }}
     - ${{ inputs.region }}
+    - ${{ inputs.subnet }}
+    - ${{ inputs.security-group }}
